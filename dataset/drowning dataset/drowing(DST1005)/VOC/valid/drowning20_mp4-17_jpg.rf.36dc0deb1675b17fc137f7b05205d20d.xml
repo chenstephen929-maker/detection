@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>drowning20_mp4-17_jpg.rf.36dc0deb1675b17fc137f7b05205d20d.jpg</filename>
+	<path>drowning20_mp4-17_jpg.rf.36dc0deb1675b17fc137f7b05205d20d.jpg</path>
+	<source>
+		<database>roboflow.com</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>640</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Drowning</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>140</xmin>
+			<xmax>421</xmax>
+			<ymin>109</ymin>
+			<ymax>488</ymax>
+		</bndbox>
+	</object>
+</annotation>

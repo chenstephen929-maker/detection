@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>image2030_jpg.rf.426be3b6f16f3b6f7df30e7c33174744.jpg</filename>
+	<path>image2030_jpg.rf.426be3b6f16f3b6f7df30e7c33174744.jpg</path>
+	<source>
+		<database>roboflow.com</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>640</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Drowning</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>159</xmin>
+			<xmax>197</xmax>
+			<ymin>322</ymin>
+			<ymax>385</ymax>
+		</bndbox>
+	</object>
+</annotation>

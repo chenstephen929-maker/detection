@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>The-Child-Is-Drowning-In-Water-Selective-Focus-Nature-Stock-Video-Download-Video-Clip-Now-iStock_mp4-7_jpg.rf.d67780d013d49da948d3d17e3afc9d45.jpg</filename>
+	<path>The-Child-Is-Drowning-In-Water-Selective-Focus-Nature-Stock-Video-Download-Video-Clip-Now-iStock_mp4-7_jpg.rf.d67780d013d49da948d3d17e3afc9d45.jpg</path>
+	<source>
+		<database>roboflow.com</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>640</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Drowning</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>128</xmin>
+			<xmax>434</xmax>
+			<ymin>173</ymin>
+			<ymax>479</ymax>
+		</bndbox>
+	</object>
+</annotation>

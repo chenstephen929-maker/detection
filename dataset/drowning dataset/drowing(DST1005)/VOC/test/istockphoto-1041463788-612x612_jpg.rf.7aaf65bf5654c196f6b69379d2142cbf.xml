@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>istockphoto-1041463788-612x612_jpg.rf.7aaf65bf5654c196f6b69379d2142cbf.jpg</filename>
+	<path>istockphoto-1041463788-612x612_jpg.rf.7aaf65bf5654c196f6b69379d2142cbf.jpg</path>
+	<source>
+		<database>roboflow.com</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>640</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Drowning</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>1</xmin>
+			<xmax>579</xmax>
+			<ymin>129</ymin>
+			<ymax>617</ymax>
+		</bndbox>
+	</object>
+</annotation>

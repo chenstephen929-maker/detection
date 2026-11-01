@@ -1,0 +1,53 @@
+<annotation>
+	<folder></folder>
+	<filename>drowning1_mp4-27_jpg.rf.abb8049ea32eab2c6335a4de34297448.jpg</filename>
+	<path>drowning1_mp4-27_jpg.rf.abb8049ea32eab2c6335a4de34297448.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>416</width>
+		<height>416</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Person drowning</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>294</xmin>
+			<xmax>383</xmax>
+			<ymin>164</ymin>
+			<ymax>323</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>Person in water</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>34</xmin>
+			<xmax>116</xmax>
+			<ymin>205</ymin>
+			<ymax>372</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>Person in water</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>122</xmin>
+			<xmax>211</xmax>
+			<ymin>338</ymin>
+			<ymax>416</ymax>
+		</bndbox>
+	</object>
+</annotation>

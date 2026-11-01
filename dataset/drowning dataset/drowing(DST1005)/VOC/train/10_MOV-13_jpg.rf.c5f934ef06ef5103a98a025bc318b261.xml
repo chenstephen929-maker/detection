@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>10_MOV-13_jpg.rf.c5f934ef06ef5103a98a025bc318b261.jpg</filename>
+	<path>10_MOV-13_jpg.rf.c5f934ef06ef5103a98a025bc318b261.jpg</path>
+	<source>
+		<database>roboflow.com</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>480</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Drowning</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>308</xmin>
+			<xmax>509</xmax>
+			<ymin>234</ymin>
+			<ymax>372</ymax>
+		</bndbox>
+	</object>
+</annotation>

@@ -1,0 +1,40 @@
+<annotation>
+	<folder></folder>
+	<filename>130490_jpg.rf.11a73692f79b69cf559ff91b29967035.jpg</filename>
+	<path>130490_jpg.rf.11a73692f79b69cf559ff91b29967035.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>416</width>
+		<height>416</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Boat</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>109</xmin>
+			<xmax>417</xmax>
+			<ymin>55</ymin>
+			<ymax>193</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>Person in water</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>127</xmin>
+			<xmax>173</xmax>
+			<ymin>194</ymin>
+			<ymax>224</ymax>
+		</bndbox>
+	</object>
+</annotation>

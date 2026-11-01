@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>3908_jpg.rf.2083e0782d8bf99147e5ed75e2894f13.jpg</filename>
+	<path>3908_jpg.rf.2083e0782d8bf99147e5ed75e2894f13.jpg</path>
+	<source>
+		<database>roboflow.ai</database>
+	</source>
+	<size>
+		<width>416</width>
+		<height>416</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Person in water</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>263</xmin>
+			<xmax>308</xmax>
+			<ymin>160</ymin>
+			<ymax>239</ymax>
+		</bndbox>
+	</object>
+</annotation>

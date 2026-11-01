@@ -1,0 +1,27 @@
+<annotation>
+	<folder></folder>
+	<filename>Drowning-Man-Stock-Video-Download-Video-Clip-Now-Drowning-Struggle-Water-iStock_mp4-8_jpg.rf.3b9a4a195342d6e062d98fd9b509b48f.jpg</filename>
+	<path>Drowning-Man-Stock-Video-Download-Video-Clip-Now-Drowning-Struggle-Water-iStock_mp4-8_jpg.rf.3b9a4a195342d6e062d98fd9b509b48f.jpg</path>
+	<source>
+		<database>roboflow.com</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>640</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Drowning</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<occluded>0</occluded>
+		<bndbox>
+			<xmin>147</xmin>
+			<xmax>488</xmax>
+			<ymin>29</ymin>
+			<ymax>369</ymax>
+		</bndbox>
+	</object>
+</annotation>
