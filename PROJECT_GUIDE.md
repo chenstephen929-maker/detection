@@ -1,6 +1,6 @@
 # 空地协同识别项目源码
 
-该目录包含本机项目的 Ultralytics 源码、检测/截图脚本与 Windows WPF 控制端。模型、训练数据、已有 Docker 镜像和设备软件单独提供。
+该目录包含本机项目的 Ultralytics 源码、检测/截图脚本与 Windows WPF 控制端。仓库已包含指定的 mixed_fixed_stage 自训练 best.pt；训练数据、其他模型、已有 Docker 镜像和设备软件另行准备。
 
 ## 目录与入口
 
@@ -35,6 +35,20 @@ dotnet build AirGroundControlApp.csproj
 
 界面使用方式见 `user_app/README.md`。Python 解释器、脚本路径、IP 与远端命令需要按实际机器配置。
 
+## 已提供的自训练权重
+
+- 文件：`runs/detect/mixed_fixed_stage/weights/best.pt`。
+- 大小：22,592,099 字节（约 22.6 MB）。这份权重已随仓库提供，克隆后可直接获取。
+- SHA-256：`FFBC4B01AEAB84BBD07E4BF7DE6FFC435109AC6740F022980005E9F209805128`。
+- 从仓库根目录运行 Python 时，模型加载路径如下：
+
+```python
+from ultralytics import YOLO
+model = YOLO("runs/detect/mixed_fixed_stage/weights/best.pt")
+```
+
+已有脚本中的其他本机路径和 TensorRT engine 路径仍需按实际运行环境配置。这次补传没有替换各脚本原来使用的模型。
+
 ## 模型与设备环境
 
 - `detect_car.py` 当前读取 `/workspace/best.engine`；控制端命令挂载远端 `~/my_model` 到 `/workspace`，使用已有 `drowning-env-v3` 镜像。engine、镜像、MAVProxy、FFmpeg、QGC 与设备网络需另行准备。
@@ -46,7 +60,7 @@ dotnet build AirGroundControlApp.csproj
 
 根目录 YAML 与部分脚本仍包含 `E:/dataset`、E 盘项目的绝对路径。请按目标环境调整。训练复现需要对应图片、标签、类别与训练/验证/测试划分；数据应单独提供下载方式。仅有 XML/TXT 标签不足以复现训练。
 
-`dataset/`、`runs/`、模型文件、虚拟环境、缓存和编译输出已从源码上传清单排除。原 `DDPG/` 目录中未找到算法源码，如需复现该部分，应另外补充实际算法代码。
+`dataset/`、其他训练输出和模型、虚拟环境、缓存及编译输出仍排除；`runs/detect/mixed_fixed_stage/weights/best.pt` 是已纳入版本管理的例外。原 `DDPG/` 目录中未找到算法源码，如需复现该部分，应另外补充实际算法代码。
 
-请补上本项目模型、数据、容器镜像的可用获取方式，并完成独立环境与真实设备验证后，再将本项目标为可直接部署。
+指定的混合数据集训练权重已提供；其他数据与容器镜像仍需补充可用获取方式，并完成独立环境与真实设备验证。
 

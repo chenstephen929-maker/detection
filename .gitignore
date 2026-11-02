@@ -34,7 +34,7 @@ TestResults/
 # Data, training outputs and separately distributed models
 /dataset/
 /datasets/
-/runs/
+/runs/**
 /DDPG/
 wandb/
 *.pt
@@ -54,3 +54,8 @@ Thumbs.db
 Desktop.ini
 
 # Dependency manifests and source assets are intentionally retained.
+# Include only the selected trained checkpoint.
+!/runs/detect/
+!/runs/detect/mixed_fixed_stage/
+!/runs/detect/mixed_fixed_stage/weights/
+!/runs/detect/mixed_fixed_stage/weights/best.pt
