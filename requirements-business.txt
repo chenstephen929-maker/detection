@@ -1,0 +1,4 @@
+# Install after: pip install -e .
+# Direct extra imports used by the project scripts; versions are not pinned.
+Flask
+pymavlink

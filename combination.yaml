@@ -1,0 +1,13 @@
+path: E:\ultralytics-main\ultralytics-main\dataset\drowning dataset
+train:
+ - drowning-find(DST2019)\images\train
+ - drowing(DST1005)\images\train
+val:
+ - drowning-find(DST2019)\images\valid
+ - drowing(DST1005)\images\valid
+names:
+- Person in water
+- drowning
+- Person out of water
+- Boat
+nc: 4

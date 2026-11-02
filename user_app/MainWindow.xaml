@@ -1,0 +1,219 @@
+<Window x:Class="AirGroundControlApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="空地协同任务控制台"
+        Height="860"
+        Width="1280"
+        MinHeight="760"
+        MinWidth="1120"
+        Background="#F5F7FA">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="MinHeight" Value="30" />
+            <Setter Property="Margin" Value="0,4,10,8" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+        <Style TargetType="PasswordBox">
+            <Setter Property="MinHeight" Value="30" />
+            <Setter Property="Margin" Value="0,4,10,8" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="MinHeight" Value="30" />
+            <Setter Property="MinWidth" Value="74" />
+            <Setter Property="Margin" Value="0,0,8,0" />
+            <Setter Property="Padding" Value="10,3" />
+        </Style>
+        <Style TargetType="GroupBox">
+            <Setter Property="Margin" Value="0,0,12,12" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="BorderBrush" Value="#D9DEE8" />
+        </Style>
+        <Style TargetType="DataGrid">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="BorderBrush" Value="#D9DEE8" />
+            <Setter Property="GridLinesVisibility" Value="Horizontal" />
+            <Setter Property="HeadersVisibility" Value="Column" />
+            <Setter Property="CanUserAddRows" Value="False" />
+            <Setter Property="CanUserDeleteRows" Value="False" />
+            <Setter Property="CanUserResizeRows" Value="False" />
+            <Setter Property="IsReadOnly" Value="True" />
+            <Setter Property="RowHeight" Value="42" />
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="18">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0" LastChildFill="True" Margin="0,0,0,14">
+            <StackPanel DockPanel.Dock="Left">
+                <TextBlock Text="空地协同任务控制台" FontSize="24" FontWeight="SemiBold" Foreground="#1D2733" />
+                <TextBlock Text="QGC 请手动打开并监听 Windows UDP 14550；本程序只维护任务状态、启动顺序和日志。"
+                           FontSize="13"
+                           Foreground="#667085"
+                           Margin="0,4,0,0" />
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Button Content="一键启动全部" Command="{Binding StartAllCommand}" Background="#1F6FEB" Foreground="White" />
+                <Button Content="停止全部" Command="{Binding StopAllCommand}" Background="#D92D20" Foreground="White" />
+            </StackPanel>
+        </DockPanel>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.15*" />
+                <ColumnDefinition Width="1.15*" />
+                <ColumnDefinition Width="1.4*" />
+            </Grid.ColumnDefinitions>
+
+            <GroupBox Header="无人机 SSH" Grid.Column="0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.4*" />
+                        <ColumnDefinition Width="0.6*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Host" />
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="Port" />
+                    <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding Drone.Host, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Drone.Port, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="用户名 / SSH 密码" />
+                    <TextBlock Grid.Row="2" Grid.Column="1" Text="sudo 密码" />
+                    <StackPanel Grid.Row="3" Grid.Column="0">
+                        <TextBox Text="{Binding Drone.Username, UpdateSourceTrigger=PropertyChanged}" />
+                        <PasswordBox x:Name="DronePasswordBox" PasswordChanged="DronePasswordBox_PasswordChanged" />
+                    </StackPanel>
+                    <StackPanel Grid.Row="3" Grid.Column="1">
+                        <PasswordBox x:Name="DroneSudoPasswordBox" PasswordChanged="DroneSudoPasswordBox_PasswordChanged" />
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="连接" Command="{Binding Drone.ConnectCommand}" />
+                            <Button Content="断开" Command="{Binding Drone.DisconnectCommand}" />
+                        </StackPanel>
+                        <TextBlock Text="{Binding Drone.StatusText}" Foreground="#475467" Margin="0,8,0,0" />
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Header="无人车 SSH" Grid.Column="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.4*" />
+                        <ColumnDefinition Width="0.6*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Host" />
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="Port" />
+                    <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding Car.Host, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Car.Port, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="用户名 / SSH 密码" />
+                    <TextBlock Grid.Row="2" Grid.Column="1" Text="sudo 密码" />
+                    <StackPanel Grid.Row="3" Grid.Column="0">
+                        <TextBox Text="{Binding Car.Username, UpdateSourceTrigger=PropertyChanged}" />
+                        <PasswordBox x:Name="CarPasswordBox" PasswordChanged="CarPasswordBox_PasswordChanged" />
+                    </StackPanel>
+                    <StackPanel Grid.Row="3" Grid.Column="1">
+                        <PasswordBox x:Name="CarSudoPasswordBox" PasswordChanged="CarSudoPasswordBox_PasswordChanged" />
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="连接" Command="{Binding Car.ConnectCommand}" />
+                            <Button Content="断开" Command="{Binding Car.DisconnectCommand}" />
+                        </StackPanel>
+                        <TextBlock Text="{Binding Car.StatusText}" Foreground="#475467" Margin="0,8,0,0" />
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Header="本地与网络参数" Grid.Column="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Windows/QGC IP" />
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="无人车接收 IP" />
+                    <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding WindowsIp, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding CarIp, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Text="Python 解释器" />
+                    <TextBox Grid.Row="3" Grid.ColumnSpan="2" Text="{Binding PythonPath, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBlock Grid.Row="4" Grid.ColumnSpan="2" Text="截图服务脚本" />
+                    <TextBox Grid.Row="5" Grid.ColumnSpan="2" Text="{Binding ScreenshotScriptPath, UpdateSourceTrigger=PropertyChanged}" />
+                </Grid>
+            </GroupBox>
+        </Grid>
+
+        <GroupBox Grid.Row="2" Header="任务">
+            <DataGrid ItemsSource="{Binding Tasks}" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="任务" Binding="{Binding DisplayName}" Width="1.7*" />
+                    <DataGridTextColumn Header="类别" Binding="{Binding Category}" Width="0.7*" />
+                    <DataGridTextColumn Header="目标" Binding="{Binding TargetText}" Width="0.7*" />
+                    <DataGridTextColumn Header="状态" Binding="{Binding StateText}" Width="0.8*" />
+                    <DataGridTextColumn Header="运行时间" Binding="{Binding RuntimeText}" Width="0.8*" />
+                    <DataGridTextColumn Header="最后错误" Binding="{Binding LastError}" Width="2.3*" />
+                    <DataGridTemplateColumn Header="操作" Width="240">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="启动" Command="{Binding StartCommand}" />
+                                    <Button Content="停止" Command="{Binding StopCommand}" />
+                                    <Button Content="重启" Command="{Binding RestartCommand}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+
+        <GroupBox Grid.Row="3" Header="日志">
+            <DockPanel LastChildFill="True">
+                <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,10">
+                    <TextBlock Text="过滤" VerticalAlignment="Center" Margin="0,0,8,0" />
+                    <ComboBox Width="130"
+                              ItemsSource="{Binding LogFilters}"
+                              SelectedItem="{Binding SelectedLogFilter}"
+                              Margin="0,0,8,0" />
+                    <Button Content="清空日志" Command="{Binding ClearLogsCommand}" />
+                </StackPanel>
+                <ListView ItemsSource="{Binding LogsView}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="时间" Width="72" DisplayMemberBinding="{Binding TimestampText}" />
+                            <GridViewColumn Header="级别" Width="70" DisplayMemberBinding="{Binding LevelText}" />
+                            <GridViewColumn Header="来源" Width="140" DisplayMemberBinding="{Binding Source}" />
+                            <GridViewColumn Header="类别" Width="90" DisplayMemberBinding="{Binding Category}" />
+                            <GridViewColumn Header="消息" Width="820" DisplayMemberBinding="{Binding Message}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </DockPanel>
+        </GroupBox>
+    </Grid>
+</Window>

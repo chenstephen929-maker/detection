@@ -1,0 +1,56 @@
+# Python / packaging
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+env/
+ENV/
+
+# Editors and local runtime data
+.idea/
+.vscode/
+.vs/
+.dotnet_home/
+.localappdata/
+.appdata/
+.userprofile/
+.nuget/
+.codex_push_*/
+[Bb]in/
+[Oo]bj/
+publish/
+TestResults/
+*.log
+*.tmp
+*.cache
+.env
+.env.*
+*.pfx
+*.key
+
+# Data, training outputs and separately distributed models
+/dataset/
+/datasets/
+/runs/
+/DDPG/
+wandb/
+*.pt
+*.pth
+*.engine
+*.onnx
+*.weights
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.webm
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Dependency manifests and source assets are intentionally retained.

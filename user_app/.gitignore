@@ -1,0 +1,45 @@
+# Build output
+[Bb]in/
+[Oo]bj/
+out/
+publish/
+TestResults/
+
+# Local runtime/cache directories
+.dotnet_home/
+.localappdata/
+.appdata/
+.userprofile/
+.nuget/
+.codex_push_*/
+
+# IDE/editor files
+.vs/
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.cache
+*.pid
+*.swp
+*.bak
+docs/* - 副本.txt
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Environment and local secrets
+.env
+.env.*
+*.pfx
+*.snk
+*.key
